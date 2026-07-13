@@ -20,11 +20,13 @@ Work in progress:
 ## Notes:
 
 The configuration here is opinionated in that it:
+- Enables automatic security updates (at least for Debian, Ubuntu and Rocky)
+- Sets up qemu-guest-agent
 - Uses EFI boot
-- Enables a serial console
-- Sets a default firewall on the VM allowing only incoming ping and ssh
-- Uses local-lvm for storage
-- Adds ssh keys from ~/.ssh/authorized_keys to the root user in the VM
+- Enables a serial console not VGA
+- Default firewall enabled allowing only incoming ping and ssh
+- Uses either `local-lvm` or `local-zfs` for storage (auto detected)
+- Adds ssh keys from `~/.ssh/authorized_keys` to the root user in the VM
 - Resizes the disk to 32GB AFTER importing it, so the source image file is unmodified
 
 ## Usage:
