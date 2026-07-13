@@ -8,7 +8,8 @@ configured template for that VM on your proxmox server.
 - Debian 13 (EFI, Secure Boot enabled)
 - Ubuntu 24.04 (EFI, Secure Boot enabled)
 - Ubuntu 26.04 (EFI, Secure Boot enabled)
-- Rocky Linux 9.5 (EFI, Secure Boot enabled)
+- Rocky Linux 9 (EFI, Secure Boot enabled)
+- Rocky Linux 10 (EFI, Secure Boot enabled)
 - Arch Linux (EFI)
 
 Work in progress:
