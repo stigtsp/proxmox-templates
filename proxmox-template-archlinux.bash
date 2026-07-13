@@ -6,7 +6,8 @@ VM_TEMPLATE_NAME="archlinux-template"
 VM_IMAGE_URL=https://geo.mirror.pkgbuild.com/images/latest/Arch-Linux-x86_64-cloudimg.qcow2
 VM_IMAGE_CHECKSUMS_URL=$VM_IMAGE_URL.SHA256
 
-VM_STORAGE=local-lvm
+VM_STORAGE=$(pvesm status | awk '$1=="local-lvm" || $1=="local-zfs" {print $1; exit}')
+: ${VM_STORAGE:?ERROR: Could not detect local storage via pvesm}
 VM_NET_BRIDGE=vmbr0
 VM_ID=8337
 VM_CORES=2

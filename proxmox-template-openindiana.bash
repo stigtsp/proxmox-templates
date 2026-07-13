@@ -6,7 +6,8 @@ VM_TEMPLATE_NAME="openindiana-hipster-template"
 VM_IMAGE_URL=https://dlc.openindiana.org/isos/hipster/20230502/OI-hipster-cloudimage.img.gz
 VM_IMAGE_CHECKSUMS_URL=$VM_IMAGE_URL.sha256sum
 
-VM_STORAGE=local-lvm
+VM_STORAGE=$(pvesm status | awk '$1=="local-lvm" || $1=="local-zfs" {print $1; exit}')
+: ${VM_STORAGE:?ERROR: Could not detect local storage via pvesm}
 VM_NET_BRIDGE=vmbr0
 VM_ID=8111
 VM_CORES=2

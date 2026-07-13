@@ -6,7 +6,8 @@ VM_TEMPLATE_NAME="ubuntu-2404-template"
 VM_IMAGE_URL=https://cloud-images.ubuntu.com/noble/current/noble-server-cloudimg-amd64.img
 
 
-VM_STORAGE=local-lvm
+VM_STORAGE=$(pvesm status | awk '$1=="local-lvm" || $1=="local-zfs" {print $1; exit}')
+: ${VM_STORAGE:?ERROR: Could not detect local storage via pvesm}
 VM_NET_BRIDGE=vmbr0
 VM_ID=8244
 VM_CORES=2

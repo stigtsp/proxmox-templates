@@ -6,7 +6,8 @@ VM_TEMPLATE_NAME="freebsd-14-2-template"
 VM_IMAGE_URL=https://download.freebsd.org/ftp/releases/VM-IMAGES/14.2-RELEASE/amd64/Latest/FreeBSD-14.2-RELEASE-amd64-BASIC-CLOUDINIT.zfs.qcow2.xz
 VM_IMAGE_CHECKSUMS_URL=$VM_IMAGE_URL.CHECKSUM
 
-VM_STORAGE=local-lvm
+VM_STORAGE=$(pvesm status | awk '$1=="local-lvm" || $1=="local-zfs" {print $1; exit}')
+: ${VM_STORAGE:?ERROR: Could not detect local storage via pvesm}
 VM_NET_BRIDGE=vmbr0
 VM_ID=8142
 VM_CORES=2
