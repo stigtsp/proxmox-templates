@@ -3,7 +3,7 @@
 set -euo pipefail
 
 VM_TEMPLATE_NAME="rocky-9-5-template"
-VM_IMAGE_URL=https://dl.rockylinux.org/pub/rocky/9.5/images/x86_64/Rocky-9-GenericCloud.latest.x86_64.qcow2
+VM_IMAGE_URL=https://dl.rockylinux.org/pub/rocky/9/images/x86_64/Rocky-9-GenericCloud.latest.x86_64.qcow2
 VM_IMAGE_CHECKSUMS_URL=$VM_IMAGE_URL.CHECKSUM
 
 VM_STORAGE=$(pvesm status | awk '$1=="local-lvm" || $1=="local-zfs" {print $1; exit}')
