@@ -5,7 +5,9 @@ configured template for that VM on your proxmox server.
 
 ## Distros Supported:
 - Debian 12 (EFI, Secure Boot enabled)
+- Debian 13 (EFI, Secure Boot enabled)
 - Ubuntu 24.04 (EFI, Secure Boot enabled)
+- Ubuntu 26.04 (EFI, Secure Boot enabled)
 - Rocky Linux 9.5 (EFI, Secure Boot enabled)
 - Arch Linux (EFI)
 
